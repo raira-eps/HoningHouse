@@ -9,17 +9,37 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="script.js" defer></script>
 </head>
 <body>
-  <header class="section">
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="img/logo.png" alt="包丁の研屋 ロゴ">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">サービス</a></li>
+        <li><a href="#profile">プロフィール</a></li>
+        <li><a href="#gallery">ギャラリー</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="section hero">
     <div class="container">
       <img src="img/logo.png" alt="包丁の研屋 ロゴ" class="logo">
       <h1>包丁の研屋</h1>
       <p class="subtitle">料理人による丁寧な研ぎ直しで、切れ味を取り戻します。</p>
       <p class="catch" style="font-size: 1.4rem; color: #d75a7d; margin-top: 16px; font-weight: bold; background-color: #ffe9f1; padding: 12px 16px; border-radius: 12px; display: inline-block;">
-        今日の晩ごはんが、ちょっと楽しくなる包丁へ。
+        切れ味も暮らしも磨く、あなたの家の研ぎ屋さん
       </p>
     </div>
   </header>
@@ -27,20 +47,49 @@
   <main>
     <section id="services" class="section bg-light-pink">
       <div class="container">
-        <h2>サービス内容</h2>
-        <p>こんなお悩み、ありませんか？</p>
-        <ul>
+        <h2 data-aos="fade-up">サービス内容</h2>
+        <p data-aos="fade-up" data-aos-delay="100">こんなお悩み、ありませんか？</p>
+        <ul data-aos="fade-up" data-aos-delay="200">
           <li>最近、包丁の切れ味が悪くてイライラする</li>
           <li>研ぎ方がわからないし、プロに任せたい</li>
           <li>育児や仕事で時間がなくて後回しにしている</li>
         </ul>
-        <p>そんな方に向けて、<strong>料理人の私が直接対面で対応</strong>します。</p>
-        <ul>
-          <li>料金：1本500円〜</li>
-          <li>対応方法：持ち込み／訪問／郵送</li>
-          <li>納期目安：即日〜3日以内（本数による）</li>
-          <li>営業で外回り中にもお預かりOK（地域限定）</li>
-        </ul>
+        <p data-aos="fade-up" data-aos-delay="300">そんな方に向けて、<strong>料理人の私が直接対面で対応</strong>します。</p>
+        
+        <div class="service-cards">
+          <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+            <h3>基本研ぎ</h3>
+            <p class="price">500円〜</p>
+            <ul>
+              <li>刃の角度調整</li>
+              <li>基本的な研ぎ直し</li>
+              <li>切れ味チェック</li>
+            </ul>
+          </div>
+          
+          <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+            <h3>本格研ぎ</h3>
+            <p class="price">1,000円〜</p>
+            <ul>
+              <li>刃の角度調整</li>
+              <li>本格的な研ぎ直し</li>
+              <li>切れ味チェック</li>
+              <li>刃先の微調整</li>
+            </ul>
+          </div>
+          
+          <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+            <h3>特別研ぎ</h3>
+            <p class="price">2,000円〜</p>
+            <ul>
+              <li>刃の角度調整</li>
+              <li>高度な研ぎ直し</li>
+              <li>切れ味チェック</li>
+              <li>刃先の微調整</li>
+              <li>刃の状態診断</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -55,20 +104,71 @@
 
     <section id="gallery" class="section bg-ivory">
       <div class="container">
-        <h2>研ぎのビフォー・アフター</h2>
-        <div class="gallery-grid">
-          <img src="img/sample1.jpg" alt="ビフォー" class="gallery-img">
-          <img src="img/sample2.jpg" alt="アフター" class="gallery-img">
-          <img src="img/sample3.jpg" alt="研ぎ中" class="gallery-img">
+        <h2 data-aos="fade-up">研ぎのビフォー・アフター</h2>
+        <div class="swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="img/sample1.jpg" alt="研ぎ前の包丁">
+              <p class="caption">研ぎ前</p>
+            </div>
+            <div class="swiper-slide">
+              <img src="img/sample2.jpg" alt="研ぎ後の包丁">
+              <p class="caption">研ぎ後</p>
+            </div>
+            <div class="swiper-slide">
+              <img src="img/sample3.jpg" alt="研ぎ作業中">
+              <p class="caption">研ぎ作業中</p>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
         </div>
       </div>
     </section>
 
     <section id="contact" class="section bg-gray">
       <div class="container">
-        <h2>お問い合わせ</h2>
-        <p>LINEからお気軽にご相談ください：</p>
-        <a href="https://line.me/ti/p/your-line-id" class="btn">LINEで問い合わせる</a>
+        <h2 data-aos="fade-up">お問い合わせ</h2>
+        <div class="contact-content" data-aos="fade-up" data-aos-delay="100">
+          <div class="contact-info">
+            <h3>ご予約・お問い合わせ</h3>
+            <p>LINEまたはお電話でお気軽にご相談ください。</p>
+            <div class="contact-methods">
+              <a href="https://line.me/ti/p/your-line-id" class="btn line-btn">
+                <img src="img/line-icon.png" alt="LINEアイコン" class="line-icon">
+                LINEで問い合わせる
+              </a>
+              <div class="phone">
+                <p>お電話でのお問い合わせ</p>
+                <a href="tel:090-1234-5678" class="phone-number">090-1234-5678</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-form">
+            <h3>メールでのお問い合わせ</h3>
+            <form>
+              <div class="form-group">
+                <label for="name">お名前</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">メールアドレス</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">電話番号</label>
+                <input type="tel" id="phone" name="phone">
+              </div>
+              <div class="form-group">
+                <label for="message">お問い合わせ内容</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn submit-btn">送信する</button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   </main>
