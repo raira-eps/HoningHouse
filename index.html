@@ -17,6 +17,7 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="script.js" defer></script>
+  <script src="config.js"></script>
 </head>
 <body>
   <nav class="navbar">
@@ -134,16 +135,16 @@
           <div class="contact-info">
             <h3>ご予約・お問い合わせ</h3>
             <div class="contact-methods">
-              <a href="https://line.me/ti/p/your-line-id" class="btn line-btn">
-                <img src="img/LINE_Brand_icon.png" alt="LINEアイコン" class="line-icon">
-                LINEでお気軽にご相談ください
-              </a>
+              <div class="line-qr">
+                <img src="https://qr-official.line.me/gs/M_144pfpju_BW.png?oat_content=qr" alt="LINE QRコード" class="qr-code">
+                <p>QRコードを読み取って<br>友だち追加してください</p>
+              </div>
             </div>
           </div>
           
           <div class="contact-form">
             <h3>メールでのお問い合わせ</h3>
-            <form>
+            <form action="https://formspree.io/f/xjkypoav" method="POST">
               <div class="form-group">
                 <label for="name">お名前</label>
                 <input type="text" id="name" name="name" required>
@@ -173,5 +174,12 @@
       <p>&copy; 2025 包丁の研屋</p>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.querySelector('form');
+      form.action = `https://formspree.io/f/${config.formspreeId}`;
+    });
+  </script>
 </body>
 </html>
