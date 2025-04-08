@@ -66,6 +66,9 @@ h1 {
   white-space: normal;
   line-height: 1.6;
   text-align: center;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 0 20px;
 }
 h2 {
   font-size: 2rem;
@@ -123,12 +126,8 @@ footer {
   --border-color: #e0e0e0;
 }
 
-html, body {
-  overflow-x: hidden;
-  width: 100%;
-  position: relative;
-  word-break: break-word;
-  white-space: normal;
+html {
+  height: 100%;
 }
 
 body {
@@ -138,10 +137,21 @@ body {
   margin: 0;
   padding: 0;
   background: url('img/phon_BGI.png') center/cover fixed;
-  min-height: 100vh;
-  will-change: transform;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  position: relative;
   word-break: break-word;
   white-space: normal;
+  -webkit-overflow-scrolling: touch;
+}
+
+@supports (-webkit-touch-callout: none) {
+  body {
+    /* iOS用の調整 */
+    height: -webkit-fill-available;
+  }
 }
 
 .container {
@@ -985,6 +995,9 @@ p, li, .contact-info p, .service-card p {
     white-space: normal;
     line-height: 1.6;
     text-align: center;
+    margin: 0 auto;
+    max-width: 90%;
+    padding: 0 10px;
   }
 }
 
@@ -996,5 +1009,8 @@ p, li, .contact-info p, .service-card p {
     white-space: normal;
     line-height: 1.6;
     text-align: center;
+    margin: 0 auto;
+    max-width: 90%;
+    padding: 0 15px;
   }
 }
