@@ -197,4 +197,35 @@ document.addEventListener('DOMContentLoaded', () => {
   if (hero) {
     hero.classList.add('visible');
   }
+});
+
+// ハンバーガーメニュー
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+const links = document.querySelectorAll('.nav-links li');
+
+hamburger.addEventListener('click', () => {
+  // メニューの開閉
+  navLinks.classList.toggle('active');
+  hamburger.classList.toggle('active');
+  
+  // アニメーション
+  links.forEach((link, index) => {
+    if (link.style.animation) {
+      link.style.animation = '';
+    } else {
+      link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+    }
+  });
+});
+
+// メニュー項目をクリックしたらメニューを閉じる
+links.forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    hamburger.classList.remove('active');
+    links.forEach(link => {
+      link.style.animation = '';
+    });
+  });
 }); 
