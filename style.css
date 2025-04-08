@@ -313,36 +313,90 @@ body {
   background: transparent;
 }
 
-.swiper {
-  width: 100%;
-  height: 500px;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  background: rgba(255, 255, 255, 0.9);
-  will-change: transform;
+.gallery {
+  padding: 80px 0;
+  background-color: #f8f8f8;
 }
 
-.swiper-slide {
+.gallery h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.gallery-swiper {
+  width: 100%;
+  height: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: relative;
 }
 
-.swiper-slide img {
+.gallery-swiper .swiper-slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-swiper .swiper-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-.swiper-slide .caption {
+.swiper-caption {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  right: 0;
   background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  padding: 10px;
-  margin: 0;
+  color: white;
+  padding: 12px;
   text-align: center;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  z-index: 10;
+}
+
+.swiper-slide:hover .swiper-caption {
+  transform: translateY(0);
+}
+
+.gallery-swiper .swiper-button-next,
+.gallery-swiper .swiper-button-prev {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  z-index: 20;
+}
+
+.gallery-swiper .swiper-button-next:hover,
+.gallery-swiper .swiper-button-prev:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.gallery-swiper .swiper-pagination {
+  z-index: 20;
+}
+
+.gallery-swiper .swiper-pagination-bullet {
+  background: #fff;
+  opacity: 0.7;
+}
+
+.gallery-swiper .swiper-pagination-bullet-active {
+  background: #fff;
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .gallery-swiper {
+    height: 300px;
+  }
 }
 
 /* コンタクトセクション */
@@ -520,7 +574,7 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .swiper {
+  .gallery-swiper {
     height: 300px;
   }
 }
@@ -550,4 +604,53 @@ body {
 p, li {
   color: #333;
   text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Lightbox スタイル */
+.lightbox {
+  display: none;
+  position: absolute;
+  z-index: 9999;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.lightbox.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border: 2px solid white;
+  border-radius: 4px;
+  margin: auto;
+  display: block;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  z-index: 10000;
+}
+
+.lightbox-close:hover {
+  color: #ccc;
+}
+
+/* ギャラリー画像のカーソルスタイル */
+.gallery-swiper .swiper-slide {
+  cursor: pointer;
 }

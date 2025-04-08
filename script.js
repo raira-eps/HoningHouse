@@ -5,21 +5,112 @@ AOS.init({
   once: true
 });
 
+// 画像の読み込み完了を待つ関数
+function waitForImages(selector, callback) {
+  const images = document.querySelectorAll(selector);
+  let loadedImages = 0;
+  
+  images.forEach(img => {
+    if (img.complete) {
+      loadedImages++;
+    } else {
+      img.addEventListener('load', () => {
+        loadedImages++;
+        if (loadedImages === images.length) {
+          callback();
+        }
+      });
+    }
+  });
+  
+  if (loadedImages === images.length) {
+    callback();
+  }
+}
+
 // スワイパーの初期化
-const swiper = new Swiper('.swiper', {
-  loop: true,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
+document.addEventListener('DOMContentLoaded', function() {
+  // ギャラリー画像の読み込みを待つ
+  waitForImages('.gallery-swiper img', function() {
+    const gallerySwiper = new Swiper('.gallery-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      preloadImages: true,
+      lazy: true,
+      on: {
+        init: function() {
+          // Lightbox機能の実装
+          const lightbox = document.getElementById('imageLightbox');
+          const lightboxImg = document.getElementById('lightboxImage');
+          const closeBtn = document.querySelector('.lightbox-close');
+          const gallerySection = document.querySelector('.gallery');
+
+          // 画像クリック時の処理
+          const slides = document.querySelectorAll('.gallery-swiper .swiper-slide');
+          slides.forEach(slide => {
+            const img = slide.querySelector('img');
+            if (img) {
+              slide.addEventListener('click', function(e) {
+                e.preventDefault();
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+                
+                // ギャラリーセクションの位置に合わせて表示
+                const galleryRect = gallerySection.getBoundingClientRect();
+                lightbox.style.top = `${galleryRect.top + window.scrollY}px`;
+                lightbox.style.height = `${galleryRect.height}px`;
+                
+                // 自動再生を一時停止
+                gallerySwiper.autoplay.stop();
+              });
+            }
+          });
+
+          // 閉じるボタンクリック時の処理
+          closeBtn.addEventListener('click', function() {
+            lightbox.classList.remove('active');
+            // 自動再生を再開
+            gallerySwiper.autoplay.start();
+          });
+
+          // モーダル外クリック時の処理
+          lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+              lightbox.classList.remove('active');
+              // 自動再生を再開
+              gallerySwiper.autoplay.start();
+            }
+          });
+
+          // ESCキー押下時の処理
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+              lightbox.classList.remove('active');
+              // 自動再生を再開
+              gallerySwiper.autoplay.start();
+            }
+          });
+        }
+      }
+    });
+  });
 });
 
 // スクロール時のナビゲーションバーの挙動

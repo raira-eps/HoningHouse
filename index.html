@@ -103,22 +103,26 @@
       </div>
     </section>
 
-    <section id="gallery" class="section bg-ivory">
+    <section class="gallery">
       <div class="container">
-        <h2 data-aos="fade-up">研ぎのビフォー・アフター</h2>
-        <div class="swiper" data-aos="fade-up" data-aos-delay="100">
+        <h2>ギャラリー</h2>
+        <div class="swiper gallery-swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="img/sample1.jpg" alt="研ぎ前の包丁">
-              <p class="caption">研ぎ前</p>
+              <img src="img/sample1.jpg" alt="研ぎサンプル1">
+              <div class="swiper-caption">研ぎサンプル1</div>
             </div>
             <div class="swiper-slide">
-              <img src="img/sample2.jpg" alt="研ぎ後の包丁">
-              <p class="caption">研ぎ後</p>
+              <img src="img/sample2.jpg" alt="研ぎサンプル2">
+              <div class="swiper-caption">研ぎサンプル2</div>
             </div>
             <div class="swiper-slide">
-              <img src="img/sample3.jpg" alt="研ぎ作業中">
-              <p class="caption">研ぎ作業中</p>
+              <img src="img/sample3.jpg" alt="研ぎサンプル3">
+              <div class="swiper-caption">研ぎサンプル3</div>
+            </div>
+            <div class="swiper-slide">
+              <img src="img/sample4.jpg" alt="研ぎサンプル4">
+              <div class="swiper-caption">研ぎサンプル4</div>
             </div>
           </div>
           <div class="swiper-pagination"></div>
@@ -181,5 +185,10 @@
       form.action = `https://formspree.io/f/${config.formspreeId}`;
     });
   </script>
+  <!-- 画像表示用モーダル -->
+  <div class="lightbox" id="imageLightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightboxImage">
+  </div>
 </body>
 </html>
