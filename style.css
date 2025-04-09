@@ -71,6 +71,11 @@ h1 {
   max-width: 100%;
   padding: 0 20px;
   box-sizing: border-box;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  hyphens: none;
+  -webkit-line-break: normal;
+  line-break: normal;
 }
 h2 {
   font-size: 2rem;
@@ -441,9 +446,20 @@ body {
 
   .hero .subtitle {
     font-size: 1rem;
-    margin-bottom: 15px;
-    padding: 0 10px;
+    word-break: normal;
+    overflow-wrap: break-word;
+    white-space: normal;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0 auto;
     max-width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    hyphens: none;
+    -webkit-line-break: normal;
+    line-break: normal;
   }
 
   .hero .catch {
@@ -1120,6 +1136,11 @@ p, li, .contact-info p, .service-card p {
     max-width: 100%;
     padding: 0 10px;
     box-sizing: border-box;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    hyphens: none;
+    -webkit-line-break: normal;
+    line-break: normal;
   }
 }
 
@@ -1135,5 +1156,10 @@ p, li, .contact-info p, .service-card p {
     max-width: 100%;
     padding: 0 15px;
     box-sizing: border-box;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    hyphens: none;
+    -webkit-line-break: normal;
+    line-break: normal;
   }
 }
