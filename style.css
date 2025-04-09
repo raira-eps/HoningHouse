@@ -11,7 +11,8 @@ body {
   overflow-x: hidden;
   width: 100%;
   position: relative;
-  word-break: break-word;
+  word-break: normal;
+  overflow-wrap: break-word;
   white-space: normal;
 }
 
@@ -61,7 +62,7 @@ h1 {
 .subtitle {
   font-size: 1.1rem;
   color: #666;
-  word-break: keep-all;
+  word-break: normal;
   overflow-wrap: break-word;
   white-space: normal;
   line-height: 1.6;
@@ -933,7 +934,7 @@ p, li {
 /* テキストの改行制御 */
 p, li, .contact-info p, .service-card p {
   word-break: normal;
-  overflow-wrap: normal;
+  overflow-wrap: break-word;
   word-wrap: break-word;
   white-space: normal;
   text-align: left;
@@ -1110,7 +1111,7 @@ p, li, .contact-info p, .service-card p {
 @media (max-width: 390px) {
   .subtitle {
     font-size: 1rem;
-    word-break: keep-all;
+    word-break: normal;
     overflow-wrap: break-word;
     white-space: normal;
     line-height: 1.6;
@@ -1125,7 +1126,7 @@ p, li, .contact-info p, .service-card p {
 @media (min-width: 391px) and (max-width: 768px) {
   .subtitle {
     font-size: 1.05rem;
-    word-break: keep-all;
+    word-break: normal;
     overflow-wrap: break-word;
     white-space: normal;
     line-height: 1.6;
